@@ -1,0 +1,6 @@
+{
+  "name": "Warmtepomp Cards",
+  "filename": "warmtepomp-cards.js",
+  "render_readme": true,
+  "homeassistant": "2024.1.0"
+}
