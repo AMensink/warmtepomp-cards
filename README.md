@@ -7,8 +7,11 @@ Twee geanimeerde dashboardkaarten voor Home Assistant die live laten zien wat je
 | **Warmtepomp monoblock (geanimeerd)** — buitenunit, buffervat, cv-pomp, radiatoren en vloerverwarming met verdeler | `custom:heatpump-monoblock-card` |
 | **Warmtepompboiler (geanimeerd)** — doorsnede van een warmtepompboiler met condensorspiraal, element en tapwater | `custom:heatpump-boiler-card` |
 
-![Warmtepomp monoblock](images/monoblock.png)
-![Warmtepompboiler](images/boiler.png)
+<p align="center">
+  <img src="images/monoblock.svg" alt="Warmtepomp monoblock-kaart" width="58%">
+  <img src="images/boiler.svg" alt="Warmtepompboiler-kaart" width="38%">
+</p>
+<p align="center"><em>Voorbeeld met demowaarden — in Home Assistant bewegen ventilator, compressor en waterstroom mee met de live status.</em></p>
 
 > 🇬🇧 *Two animated Lovelace cards for a monoblock heat pump and a heat pump water heater. Labels are in Dutch; configuration is below.*
 
@@ -39,6 +42,10 @@ Twee geanimeerde dashboardkaarten voor Home Assistant die live laten zien wat je
 Na installatie verschijnen beide kaarten in de kaartkiezer bij het bewerken van een dashboard. Omdat iedere installatie andere entiteitsnamen heeft, stel je je eigen sensoren in via de YAML-editor van de kaart onder `entities:`. Alles wat je niet invult valt terug op de standaardnamen van de **Tuya Heat Pump**-integratie (apparaatnamen `warmtepomp` en `boiler`). Ontbrekende entiteiten tonen gewoon `–`.
 
 ### Warmtepomp monoblock
+
+<img src="images/monoblock.svg" alt="Voorbeeld warmtepomp monoblock-kaart" width="520">
+
+Monoblock-buitenunit met buffervat op zolder, cv-pomp naar de radiatoren op de verdieping en vloerverwarming met eigen verdeler en pomp op de begane grond. Onderaan staan elektrisch vermogen, berekende warmte-afgifte en actuele COP.
 
 ```yaml
 type: custom:heatpump-monoblock-card
@@ -81,6 +88,10 @@ entities:
 | `floor_pump` | Schakelaar/stekker van de vloerverwarmingspomp |
 
 ### Warmtepompboiler
+
+<img src="images/boiler.svg" alt="Voorbeeld warmtepompboiler-kaart" width="340">
+
+Doorsnede van een warmtepompboiler: bovenin de warmtepompmodule met ventilator, verdamper, compressor en expansieventiel, daaronder de tank met condensorspiraal en elektrisch element. De tankkleur en het percentage laten zien hoe ver het water op temperatuur is.
 
 ```yaml
 type: custom:heatpump-boiler-card
