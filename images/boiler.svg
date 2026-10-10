@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="452" height="866" viewBox="0 0 452 866" font-family="Roboto, 'Segoe UI', Arial, sans-serif">
+<style>
+svg { 
+--card-background-color:#1c1c1c; --primary-text-color:#e1e1e1; --secondary-text-color:#9b9b9b;
+--divider-color:rgba(225,225,225,.14); --secondary-background-color:#2a2a2a;
+}
+.housing { fill: var(--card-background-color, #fff); stroke: var(--divider-color, #ccc); stroke-width: 2; }
+.housing2 { fill: var(--secondary-background-color, #f2f2f2); stroke: var(--divider-color, #ccc); stroke-width: 1.5; }
+.shell { fill: none; stroke: var(--secondary-text-color, #888); stroke-width: 3; }
+.insul { fill: var(--secondary-background-color, #eee); }
+.lbl { fill: var(--secondary-text-color, #777); font-size: 11px; font-family: var(--paper-font-body1_-_font-family, sans-serif); }
+.val { fill: var(--primary-text-color, #222); font-size: 15px; font-weight: 600; font-family: var(--paper-font-body1_-_font-family, sans-serif); }
+.big { font-size: 40px; font-weight: 700; fill: #fff; paint-order: stroke; stroke: rgba(0,0,0,.25); stroke-width: 2px; }
+.sub { font-size: 13px; fill: rgba(255,255,255,.95); paint-order: stroke; stroke: rgba(0,0,0,.25); stroke-width: 1.5px; }
+.fin { stroke: var(--divider-color, #bbb); stroke-width: 2; }
+.pipe-hot, .pipe-cold { fill:none; stroke-width: 6; stroke-linecap: round; }
+.pipe-hot { stroke: rgba(230,90,40,.35); }
+.pipe-cold { stroke: rgba(59,130,246,.35); }
+.flow { fill:none; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 2 12; opacity: 0; }
+.flow.hot { stroke: rgb(245,110,40); }
+.flow.cold { stroke: rgb(80,150,250); }
+.water-pipe { fill:none; stroke-width: 7; stroke-linecap: round; }
+.coil { fill:none; stroke: rgba(160,110,70,.55); stroke-width: 4; stroke-linecap: round; }
+.coil-flow { fill:none; stroke: rgb(255,170,60); stroke-width: 3; stroke-dasharray: 3 10; opacity: 0; stroke-linecap: round; }
+.element { fill: rgba(140,140,140,.7); }
+.element-glow { fill: rgb(255,60,30); opacity: 0; filter: url(#hpb-glow); }
+.bubble { fill: rgba(255,255,255,.55); opacity: 0; }
+.air { fill:none; stroke: rgba(80,150,250,.8); stroke-width: 2.5; stroke-dasharray: 6 8; stroke-linecap: round; opacity: 0; }
+.airin { stroke: rgba(150,150,150,.8); }
+.blade { fill: var(--secondary-text-color, #888); }
+.hub { fill: var(--primary-text-color, #444); }
+.comp { fill: var(--secondary-text-color, #888); }
+.comp-led { fill: #777; }
+.snow { opacity: 0; fill: rgb(80,150,250); }
+#fan { transform-origin: 90px 105px; transform-box: view-box; }
+.fan-on #fan { animation: spin 1.1s linear infinite; }
+.fan-fast #fan { animation-duration: .55s; }
+.fan-on .air { opacity: 1; animation: dash 1s linear infinite; }
+.comp-on .flow { opacity: 1; animation: dash 1.2s linear infinite; }
+.comp-on .coil-flow { opacity: 1; animation: dash 1.6s linear infinite; }
+.comp-on .coil { stroke: rgba(245,120,50,.8); }
+.comp-on #comp { animation: hum .18s ease-in-out infinite alternate; }
+.comp-on .comp-led { fill: rgb(60,200,90); }
+.heater-on .element-glow { opacity: .9; animation: pulse 1.4s ease-in-out infinite; }
+.heating .bubble { animation: rise 4s linear infinite; }
+.defrost .snow { opacity: 1; animation: pulse 2s ease-in-out infinite; }
+.pump-on .water-pipe.hotw { stroke-dasharray: 8 8; animation: dash 1s linear infinite; }
+#water-rect, #hot-layer { transition: height 1.2s ease, y 1.2s ease, fill 1.2s ease; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes dash { to { stroke-dashoffset: -28; } }
+@keyframes hum { from { transform: translate(0,0); } to { transform: translate(.8px,-.6px); } }
+@keyframes pulse { 0%,100% { opacity: .45; } 50% { opacity: 1; } }
+@keyframes rise { 0% { transform: translateY(0); opacity: 0; } 10% { opacity: .8; } 90% { opacity: .6; } 100% { transform: translateY(-230px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<rect width="100%" height="100%" rx="14" fill="#1c1c1c"/>
+<text x="22" y="30" font-size="18" font-weight="600" fill="#e1e1e1">Warmtepompboiler</text>
+<rect x="260" y="12" width="176" height="26" rx="13" fill="rgba(245,110,40,.18)"/>
+<text x="348" y="29.5" font-size="13" text-anchor="middle" fill="rgb(240,120,50)">Verwarmen · warmtepomp</text>
+<svg id="svg" class="comp-on fan-on heating" style="" x="16" y="44" width="420" height="610" viewBox="0 0 420 610">
+<defs>
+<clipPath id="hpb-tank"><rect x="120" y="222" width="180" height="350" rx="60" ry="60"/></clipPath>
+<linearGradient id="hpb-shine" x1="0" x2="1">
+<stop offset="0" stop-color="#fff" stop-opacity=".0"/>
+<stop offset=".18" stop-color="#fff" stop-opacity=".22"/>
+<stop offset=".35" stop-color="#fff" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="hpb-water" x1="0" y1="0" x2="0" y2="1">
+<stop id="g-top" offset="0" stop-color="rgb(245,143,52)"/>
+<stop id="g-mid" offset="0.65875" stop-color="rgb(245,143,52)"/>
+<stop id="g-bot" offset="1" stop-color="rgb(193,165,121)"/>
+</linearGradient>
+<filter id="hpb-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<rect class="housing" x="40" y="20" width="340" height="180" rx="22"/>
+<g opacity=".6"><line class="fin" x1="40" y1="38" x2="30" y2="38"/><line class="fin" x1="40" y1="56" x2="30" y2="56"/><line class="fin" x1="40" y1="74" x2="30" y2="74"/><line class="fin" x1="40" y1="92" x2="30" y2="92"/><line class="fin" x1="40" y1="110" x2="30" y2="110"/><line class="fin" x1="40" y1="128" x2="30" y2="128"/><line class="fin" x1="40" y1="146" x2="30" y2="146"/><line class="fin" x1="40" y1="164" x2="30" y2="164"/><line class="fin" x1="40" y1="182" x2="30" y2="182"/></g>
+<rect class="housing2" x="52" y="40" width="20" height="130" rx="4"/>
+<line class="fin" x1="54" y1="46" x2="70" y2="46"/><line class="fin" x1="54" y1="56.5" x2="70" y2="56.5"/><line class="fin" x1="54" y1="67" x2="70" y2="67"/><line class="fin" x1="54" y1="77.5" x2="70" y2="77.5"/><line class="fin" x1="54" y1="88" x2="70" y2="88"/><line class="fin" x1="54" y1="98.5" x2="70" y2="98.5"/><line class="fin" x1="54" y1="109" x2="70" y2="109"/><line class="fin" x1="54" y1="119.5" x2="70" y2="119.5"/><line class="fin" x1="54" y1="130" x2="70" y2="130"/><line class="fin" x1="54" y1="140.5" x2="70" y2="140.5"/><line class="fin" x1="54" y1="151" x2="70" y2="151"/><line class="fin" x1="54" y1="161.5" x2="70" y2="161.5"/>
+<circle cx="90" cy="105" r="0"/>
+<g id="fan">
+<path class="blade" transform="rotate(0 90 105)" d="M90 105 C 96 80, 112 72, 118 84 C 112 94, 100 100, 90 105 Z"/><path class="blade" transform="rotate(90 90 105)" d="M90 105 C 96 80, 112 72, 118 84 C 112 94, 100 100, 90 105 Z"/><path class="blade" transform="rotate(180 90 105)" d="M90 105 C 96 80, 112 72, 118 84 C 112 94, 100 100, 90 105 Z"/><path class="blade" transform="rotate(270 90 105)" d="M90 105 C 96 80, 112 72, 118 84 C 112 94, 100 100, 90 105 Z"/>
+<circle class="hub" cx="90" cy="105" r="7"/>
+</g>
+<circle cx="90" cy="105" r="36" fill="none" stroke="var(--divider-color,#ccc)" stroke-width="2"/>
+<path class="air airin" d="M8 70 H 28"/><path class="air airin" d="M8 105 H 28"/><path class="air airin" d="M8 140 H 28"/>
+<path class="air" d="M132 60 C 150 60, 150 40, 170 40"/><path class="air" d="M132 150 C 150 150, 150 170, 170 170"/>
+<g class="snow" transform="translate(62 186)">
+<path d="M0 -9 V9 M-8 -4.5 L8 4.5 M-8 4.5 L8 -4.5" stroke="rgb(80,150,250)" stroke-width="2.2" stroke-linecap="round"/>
+</g>
+<g id="comp">
+<rect class="comp" x="262" y="70" width="46" height="86" rx="20"/>
+<rect x="270" y="60" width="30" height="14" rx="5" class="comp"/>
+<circle class="comp-led" cx="285" cy="140" r="5"/>
+</g>
+<g class="click" data-k="eev">
+<path d="M190 132 l10 -8 l10 8 l-10 8 z" fill="var(--secondary-text-color,#888)"/>
+</g>
+<path class="pipe-hot" d="M285 60 V 40 H 335 V 215"/>
+<path class="flow hot" d="M285 60 V 40 H 335 V 215"/>
+<path class="pipe-cold" d="M85 215 V 185 H 200 V 140"/>
+<path class="flow cold" d="M85 215 V 185 H 200 V 140"/>
+<path class="pipe-cold" d="M200 124 V 95 H 262"/>
+<path class="flow cold" d="M200 124 V 95 H 262"/>
+<g class="click" data-k="ambient"><text class="lbl" x="4" y="226">Lucht in</text><text class="val" x="4" y="244" id="v-ambient">17 °C</text></g>
+<g class="click" data-k="coil"><text class="lbl" x="130" y="112">Verdamper</text><text class="val" x="130" y="130" id="v-coil">9 °C</text></g>
+<g class="click" data-k="eev"><text class="lbl" x="214" y="150">Ventiel</text><text class="val" x="214" y="168" id="v-eev">180 P</text></g>
+<g class="click" data-k="return_gas"><text class="lbl" x="206" y="62">Zuiggas</text><text class="val" x="206" y="80" id="v-return">12 °C</text></g>
+<g class="click" data-k="exhaust"><text class="lbl" x="316" y="80">Persgas</text><text class="val" x="316" y="98" id="v-exhaust">74 °C</text></g>
+<g class="click" data-k="compressor"><text class="lbl" x="262" y="176">Compressor</text><text class="val" x="262" y="192" id="v-comp">aan</text></g>
+<rect class="insul" x="112" y="214" width="196" height="366" rx="66"/>
+<g clip-path="url(#hpb-tank)">
+<rect x="120" y="222" width="180" height="350" fill="rgb(193,165,121)" id="water-bg"/>
+<rect x="120" y="222" width="180" height="350" fill="url(#hpb-water)" id="water-rect"/>
+<path class="coil" d="M150 380 C 190 394, 230 394, 270 392 C 230 398, 190 402, 150 404 L150 404 C 190 418, 230 418, 270 416 C 230 422, 190 426, 150 428 L150 428 C 190 442, 230 442, 270 440 C 230 446, 190 450, 150 452 L150 452 C 190 466, 230 466, 270 464 C 230 470, 190 474, 150 476 L150 476 C 190 490, 230 490, 270 488 C 230 494, 190 498, 150 500 L150 500 C 190 514, 230 514, 270 512 C 230 518, 190 522, 150 524 "/>
+<path class="coil-flow" d="M150 380 C 190 394, 230 394, 270 392 C 230 398, 190 402, 150 404 L150 404 C 190 418, 230 418, 270 416 C 230 422, 190 426, 150 428 L150 428 C 190 442, 230 442, 270 440 C 230 446, 190 450, 150 452 L150 452 C 190 466, 230 466, 270 464 C 230 470, 190 474, 150 476 L150 476 C 190 490, 230 490, 270 488 C 230 494, 190 498, 150 500 L150 500 C 190 514, 230 514, 270 512 C 230 518, 190 522, 150 524 "/>
+<rect class="element" x="150" y="540" width="120" height="8" rx="4"/>
+<rect class="element-glow" x="150" y="539" width="120" height="10" rx="5"/>
+<circle class="bubble" cx="165" cy="529" r="2" style="animation-delay:0s"/><circle class="bubble" cx="190" cy="523" r="3" style="animation-delay:1.1s"/><circle class="bubble" cx="215" cy="517" r="4" style="animation-delay:2.3s"/><circle class="bubble" cx="240" cy="535" r="2" style="animation-delay:0.6s"/><circle class="bubble" cx="260" cy="535" r="4" style="animation-delay:1.8s"/><circle class="bubble" cx="178" cy="523" r="3" style="animation-delay:3.1s"/><circle class="bubble" cx="228" cy="535" r="2" style="animation-delay:2.9s"/>
+<rect x="120" y="222" width="180" height="350" fill="url(#hpb-shine)"/>
+</g>
+<rect class="shell" x="120" y="222" width="180" height="350" rx="60"/>
+<path class="pipe-hot" d="M335 215 V 370 H 270"/>
+<path class="flow hot" d="M335 215 V 370 H 270"/>
+<path class="pipe-cold" d="M150 524 H 85 V 215"/>
+<path class="flow cold" d="M150 524 H 85 V 215"/>
+<path class="water-pipe hotw" id="hotw" d="M300 250 H 395" stroke="rgb(230,80,40)"/>
+<text class="lbl" x="345" y="240">Warm tapwater</text>
+<path class="water-pipe" d="M300 548 H 395" stroke="rgb(59,130,246)"/>
+<text class="lbl" x="345" y="538">Koud in</text>
+<g class="click" data-k="tank_temp">
+<text class="big" x="210" y="318" text-anchor="middle" id="v-tank">46 °C</text>
+</g>
+<g class="click" data-k="setpoint">
+<text class="sub" x="210" y="342" text-anchor="middle" id="v-set">doel 55 °C · 78%</text>
+</g>
+<text class="lbl" x="98" y="600" id="v-heatlbl"></text>
+</svg>
+<rect x="16" y="664" width="100" height="26" rx="13" fill="#2a2a2a"/><circle cx="29" cy="677" r="4" fill="rgb(60,200,90)"/><text x="38" y="681.5" font-size="12" fill="#e1e1e1">Compressor</text><rect x="122.0" y="664" width="100" height="26" rx="13" fill="#2a2a2a"/><circle cx="135.0" cy="677" r="4" fill="rgb(60,200,90)"/><text x="144.0" y="681.5" font-size="12" fill="#e1e1e1">Ventilator</text><rect x="228.0" y="664" width="93" height="26" rx="13" fill="#2a2a2a"/><circle cx="241.0" cy="677" r="4" fill="rgba(127,127,127,.5)"/><text x="250.0" y="681.5" font-size="12" fill="#9b9b9b">Waterpomp</text><rect x="327.0" y="664" width="79" height="26" rx="13" fill="#2a2a2a"/><circle cx="340.0" cy="677" r="4" fill="rgba(127,127,127,.5)"/><text x="349.0" y="681.5" font-size="12" fill="#9b9b9b">Element</text><rect x="16" y="696" width="93" height="26" rx="13" fill="#2a2a2a"/><circle cx="29" cy="709" r="4" fill="rgba(127,127,127,.5)"/><text x="38" y="713.5" font-size="12" fill="#9b9b9b">Ontdooien</text><rect x="115.0" y="696" width="72" height="26" rx="13" fill="#2a2a2a"/><circle cx="128.0" cy="709" r="4" fill="rgb(60,200,90)"/><text x="137.0" y="713.5" font-size="12" fill="#e1e1e1">Online</text><rect x="193.0" y="696" width="79" height="26" rx="13" fill="#2a2a2a"/><circle cx="206.0" cy="709" r="4" fill="rgba(127,127,127,.5)"/><text x="215.0" y="713.5" font-size="12" fill="#9b9b9b">Storing</text>
+<rect x="16.0" y="734" width="134.7" height="54" rx="12" fill="#2a2a2a"/><text x="28.0" y="754" font-size="11.5" fill="#9b9b9b">Vermogen</text><text x="28.0" y="776" font-size="16" font-weight="600" fill="#e1e1e1">480 W</text><rect x="158.7" y="734" width="134.7" height="54" rx="12" fill="#2a2a2a"/><text x="170.7" y="754" font-size="11.5" fill="#9b9b9b">Vandaag</text><text x="170.7" y="776" font-size="16" font-weight="600" fill="#e1e1e1">1,62 kWh</text><rect x="301.3" y="734" width="134.7" height="54" rx="12" fill="#2a2a2a"/><text x="313.3" y="754" font-size="11.5" fill="#9b9b9b">Deze maand</text><text x="313.3" y="776" font-size="16" font-weight="600" fill="#e1e1e1">18,4 kWh</text><rect x="16.0" y="796" width="134.7" height="54" rx="12" fill="#2a2a2a"/><text x="28.0" y="816" font-size="11.5" fill="#9b9b9b">Modus</text><text x="28.0" y="838" font-size="16" font-weight="600" fill="#e1e1e1">Standaard</text><rect x="158.7" y="796" width="134.7" height="54" rx="12" fill="#2a2a2a"/><text x="170.7" y="816" font-size="11.5" fill="#9b9b9b">Doeltemperatuur</text><text x="170.7" y="838" font-size="16" font-weight="600" fill="#e1e1e1">55 °C</text><rect x="301.3" y="796" width="134.7" height="54" rx="12" fill="#2a2a2a"/><text x="313.3" y="816" font-size="11.5" fill="#9b9b9b">Tot ontdooien</text><text x="313.3" y="838" font-size="16" font-weight="600" fill="#e1e1e1">1 u 35 min</text>
+</svg>
